@@ -24,7 +24,7 @@
   <!--    <a href="React"><section><h5>§ </h5><p></p><span class="timestamp"></span></section></a>-->
   <article>
 <!--    <h2>Configure a server-end proxy on Oracle Linux (RHEL)</h2>-->
-    <h4>§ Install</h4>
+    <h5>§ Install</h5>
     <p>First, enable the Extra Packages for Enterprise Linux (EPEL):
       <br><code><span class="bash_symbol">$ </span>sudo vi /etc/yum.repos.d/oracle-epel-ol8.repo</code>
       <br>Check the enable option to '1', then update repo:
@@ -38,7 +38,7 @@
       <br>Install Shadowsocks-libev:
       <br><code><span class="bash_symbol">$ </span>sudo snap install shadowsocks-libev --edge</code>
     </p>
-    <h4>§ Configure & Run</h4>
+    <h5>§ Configure & Run</h5>
     <p>Generate a password:
       <br><code><span class="bash_symbol">$ </span>openssl rand -base64 16</code>
       <br>Update the ss-config:
@@ -72,14 +72,14 @@
       <br>Configure the service to start at boot:
       <br><code><span class="bash_symbol">$ </span>sudo systemctl enable snap.shadowsocks-libev.ss-server-daemon.service</code>
     </p>
-    <h4>§ Maintenance</h4>
+    <h5>§ Maintenance</h5>
     <p>Check the service status:
       <br><code><span class="bash_symbol">$ </span>sudo systemctl status snap.shadowsocks-libev.ss-server-daemon.service</code>
       <br>Reload the service after you changed the ss-config:
       <br><code><span class="bash_symbol">$ </span>sudo systemctl restart
         snap.shadowsocks-libev.ss-server-daemon.service</code>
     </p>
-    <h4>§ Optimization</h4>
+    <h5>§ Optimization</h5>
     <p>Append the following to <code style="display: inline">/etc/security/limits.conf</code> <br>(increase the maximum number of open file
       descriptors):</p>
     <div class="code">
