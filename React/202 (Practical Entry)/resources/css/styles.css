@@ -1,0 +1,13 @@
+form,
+ol, ul, dl {
+  padding: .5rem 10%;
+  border-bottom: rgba(0, 0, 0, .4) solid 1px;
+}
+
+a {
+  text-decoration: none;
+}
+
+tbody td {
+  border: 1px solid black;
+}

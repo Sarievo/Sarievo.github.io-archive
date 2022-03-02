@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge"> <!-- ? -->
+  <title>Setting up a server-end proxy</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" sizes="192x192" href="../assets/images/favicons/SA-opacity.png">
+  <link rel="stylesheet" href="../assets/css/vanilla.css">
+</head>
+<body>
+<!--Start of header-->
+<header class="primary opaque">
+  <h5>Proxy</h5>
+  <nav>
+    <ul id="desktop">
+      <li><a href="../blog.html"><h6>Home</h6></a></li>
+    </ul>
+  </nav>
+</header>
+<!--End of header-->
+<!--Start of main-->
+<main>
+  <!--    <a href="React"><section><h5>§ </h5><p></p><span class="timestamp"></span></section></a>-->
+  <article>
+<!--    <h2>Configure a server-end proxy on Oracle Linux (RHEL)</h2>-->
+    <h4>§ Install</h4>
+    <p>First, enable the Extra Packages for Enterprise Linux (EPEL):
+      <br><code><span class="bash_symbol">$ </span>sudo vi /etc/yum.repos.d/oracle-epel-ol8.repo</code>
+      <br>Check the enable option to '1', then update repo:
+      <br><code><span class="bash_symbol">$ </span>sudo dnf update</code>
+      <br>Install Snap Snapd:
+      <br><code><span class="bash_symbol">$ </span>sudo dnf install snapd</code>
+      <br>Install the <a href="https://snapcraft.io/install/core/rhel">snapd runtime environment</a>:
+      <br><code><span class="bash_symbol">$ </span>sudo systemctl enable --now snapd.socket</code>
+      <br><code><span class="bash_symbol">$ </span>sudo ln -s /var/lib/snapd/snap /snap</code>
+      <br><code><span class="bash_symbol">$ </span>sudo snap install core</code>
+      <br>Install Shadowsocks-libev:
+      <br><code><span class="bash_symbol">$ </span>sudo snap install shadowsocks-libev --edge</code>
+    </p>
+    <h4>§ Configure & Run</h4>
+    <p>Generate a password:
+      <br><code><span class="bash_symbol">$ </span>openssl rand -base64 16</code>
+      <br>Update the ss-config:
+      <br><code><span class="bash_symbol">$ </span>sudo vi
+        /var/snap/shadowsocks-libev/common/etc/shadowsocks-libev/config.json</code>
+    </p>
+    <div class="code">
+      {
+      <br>"server":["::0","0.0.0.0"],
+      <br>"server_port":8964,
+      <br>"method":"chacha20-ietf-poly1305",
+      <br>"password":"ExamplePassword",
+      <br>"mode":"tcp_and_udp",
+      <br>"fast_open":false
+      <br>}
+    </div>
+    <p>Configure the default firewall (change '8964' to your custom server-port):
+      <br><code><span class="bash_symbol">$ </span>sudo snap install ufw</code>
+      <br><code><span class="bash_symbol">$ </span>ufw allow ssh && ufw allow 8964 && ufw enable</code>
+      <br><strong>Note</strong>: if you're using Oracle Cloud, you need to configure the <a
+          href="https://docs.oracle.com/en-us/iaas/Content/Network/Concepts/securityrules.htm">security list</a> and
+      security group for allowing TCP/UDP ingress connections at your specific port.
+      <br>Use iptables to route all traffic from 14000 ports to 14100 ports to port [your-custom-port]:
+      <br><code><span class="bash_symbol">$ </span>sudo iptables -t nat -A PREROUTING -p tcp --dport 14000:14100 -j
+        REDIRECT --to-port 8964</code>
+      <br><code><span class="bash_symbol">$ </span>sudo iptables -t nat -A PREROUTING -p udp --dport 14000:14100 -j
+        REDIRECT --to-port 8964</code>
+      <br><code><span class="bash_symbol">$ </span>sudo iptables -t nat -L PREROUTING -nv --line-number</code>
+      <br>Start the shadowsocks-libev service:
+      <br><code><span class="bash_symbol">$ </span>sudo systemctl start snap.shadowsocks-libev.ss-server-daemon.service</code>
+      <br>Configure the service to start at boot:
+      <br><code><span class="bash_symbol">$ </span>sudo systemctl enable snap.shadowsocks-libev.ss-server-daemon.service</code>
+    </p>
+    <h4>§ Maintenance</h4>
+    <p>Check the service status:
+      <br><code><span class="bash_symbol">$ </span>sudo systemctl status snap.shadowsocks-libev.ss-server-daemon.service</code>
+      <br>Reload the service after you changed the ss-config:
+      <br><code><span class="bash_symbol">$ </span>sudo systemctl restart
+        snap.shadowsocks-libev.ss-server-daemon.service</code>
+    </p>
+    <h4>§ Optimization</h4>
+    <p>Append the following to <code style="display: inline">/etc/security/limits.conf</code> <br>(increase the maximum number of open file
+      descriptors):</p>
+    <div class="code">
+      * soft nofile 51200
+      <br>* hard nofile 51200
+      <br>root soft nofile 51200
+      <br>root hard nofile 51200
+    </div>
+    <p>Append the following to <code style="display: inline">/etc/sysctl.conf</code> <br>(Switch to BBR Algorithm, According to <a
+        href="https://blogs.oracle.com/wim/post/congestion-control-algorithms-in-uek5-preview-try-out-bbr">the Oracle
+      Doc</a>):</p>
+    <div class="code">
+      net.ipv4.tcp_congestion_control=bbr
+      <br>net.core.default_qdisc=fq
+    </div>
+    <p>Reload the system config:
+      <br><code><span class="bash_symbol">$ </span>sudo sysctl -p</code>
+      <br><br>Reference:
+      <br>(1) <a href="https://shadowsocks.org/en/config/advanced.html">Optimize the shadowsocks server on Linux</a>
+      <br>(2) <a href="https://gfw.report/blog/ss_tutorial/zh/">GFW Report</a>
+    </p>
+  </article>
+</main>
+<!--End of main-->
+<!--Start of footer-->
+<footer><p>Made with ❤️ © 2022 Sarievo</p></footer>
+<!--End of footer-->
+<script src="../script.js"></script>
+</body>
+</html>

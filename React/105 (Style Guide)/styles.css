@@ -1,0 +1,73 @@
+/* My MISC; 
+  Note: use the Google Font provided at
+  <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Gideon+Roman&family=M+PLUS+Rounded+1c&family=Raleway:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+*/
+
+body {
+  font-family: "Raleway", sans-serif;
+  /*font-family: 'M PLUS Rounded 1c', sans-serif;*/
+  margin: 56px 10%;
+}
+section {
+  transition: 0.1s ease-out;
+  margin: 15px auto;
+  border: 2px solid #bbb;
+  padding: 5px 10px;
+}
+
+/* Warning: Experimental Feature */
+section:hover {
+  transition: 0.1s ease-out;
+  transform: translateX(+4px) translateY(-4px);
+  border: 2px rgb(35, 0, 100) solid;
+  box-shadow: -6px 6px .1px rgb(103, 80, 164);
+}
+
+/* Fonts */
+.font-panel {
+  display: inline-block;
+
+  width: 45%;
+}
+.font-label {
+  font-size: 20px;
+  text-decoration: underline;
+}
+.roleway {
+  font-family: "Raleway", sans-serif;
+}
+.fjalla-one {
+  font-family: "Fjalla One", sans-serif;
+}
+.gideon-roman {
+  font-family: "Gideon Roman", cursive;
+}
+.m-plus-rounded {
+  font-family: "M PLUS Rounded 1c", sans-serif;
+}
+.regular {
+  font-weight: 400;
+}
+.bold {
+  font-weight: 600;
+}
+.italic {
+  font-style: italic;
+}
+
+/* Text Styles */
+h1 {
+  font-family: "Fjalla One", sans-serif;
+  font-weight: bold;
+  font-size: 26px;
+}
+h2 {
+  font-family: "Gideon Roman", cursive;
+  font-weight: bold;
+  font-size: 22px;
+}
+p {
+  font-family: "Raleway", sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+}

@@ -1,0 +1,116 @@
+/* Start of header */
+/* -------------------------------------------------------------------------------------------- */
+header, .mission-panel,
+.location-container, header li a,
+footer, h2, h3, h4, span {
+    font-family: Helvetica, sans-serif;
+    color: seashell;
+    opacity: .9;
+    text-align: center;
+}
+header, .mission-panel,
+.location-container, header li a,
+html {
+    background-color: black;
+}
+p {
+    font-size: 22px;
+}
+
+header {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 69px;
+    border-bottom: 1px solid seashell;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+header #logo {
+    margin-left: 10px;
+    height: 50px;
+}
+header li {
+    margin-right: 10px;
+    list-style: none;
+    display: inline-block;
+}
+/* Start of main */
+/* -------------------------------------------------------------------------------------------- */
+main {
+    margin-top: 70px;
+}
+/* Start of mission */
+#mission {
+    /*width: 1200px; ?? */
+    height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#mission, #locations {
+    background-repeat: no-repeat;
+    background-position: center;
+}
+#mission .mission-panel {
+    width: 100%;
+}
+/* Start of featured-tea */
+#featured-tea .tea-panel{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+#featured-tea .tea-container {
+    margin: 0 10px;
+}
+#featured-tea .tea-container h4 {
+    margin-top: 10px;
+}
+.tea-container img {
+    width: 300px;
+    height: 200px;
+}
+/* Start of locations */
+#locations {
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#locations h2 {
+    margin-top: -2em;
+}
+#locations .location-panel {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+#locations .location-container {
+    width: 25%;
+    max-width: 300px;
+    margin-left: 20px;
+    margin-right: 20px;
+    opacity: 1;
+}
+#locations .location-container {
+    display: inline-flex;
+    flex-direction: column;
+    padding: 5px 0;
+}
+#locations .location-container span {
+    margin: 15px;
+}
+/* Start of footer */
+/* -------------------------------------------------------------------------------------------- */
+footer condition.contact-container {
+    height: 200px;
+}
+footer h4 {
+    text-align: left;
+    margin-left: 20px;
+}
