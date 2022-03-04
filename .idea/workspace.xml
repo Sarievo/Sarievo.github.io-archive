@@ -2,15 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bce3c1cc-790e-4b8b-a3c3-473b82c44250" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Sarievo.github.io.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Archive.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/F1C1_solution_2019.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +50,7 @@
       <option name="presentableId" value="Default" />
       <updated>1646258261642</updated>
       <workItem from="1646258261644" duration="77000" />
-      <workItem from="1646351199327" duration="765000" />
+      <workItem from="1646351199327" duration="1108000" />
     </task>
     <servers />
   </component>
