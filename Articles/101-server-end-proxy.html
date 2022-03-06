@@ -24,6 +24,7 @@
   <!--    <a href="React"><section><h5>§ </h5><p></p><span class="timestamp"></span></section></a>-->
   <article>
 <!--    <h2>Configure a server-end proxy on Oracle Linux (RHEL)</h2>-->
+    <br>
     <h5>§ Install</h5>
     <p>First, enable the Extra Packages for Enterprise Linux (EPEL):
       <br><code><span class="bash_symbol">$ </span>sudo vi /etc/yum.repos.d/oracle-epel-ol8.repo</code>
@@ -83,14 +84,14 @@
         snap.shadowsocks-libev.ss-server-daemon.service</code>
     </p>
     <h5>§ Optimization</h5>
-    <p>Append the following to <code style="display: inline">/etc/security/limits.conf</code> <br>(increase the maximum number of open file
-      descriptors):</p>
-    <div class="code">
-      * soft nofile 51200
-      <br>* hard nofile 51200
-      <br>root soft nofile 51200
-      <br>root hard nofile 51200
-    </div>
+<!--    <p>Append the following to <code style="display: inline">/etc/security/limits.conf</code> <br>(increase the maximum number of open file-->
+<!--      descriptors):</p>-->
+<!--    <div class="code">-->
+<!--      * soft nofile 51200-->
+<!--      <br>* hard nofile 51200-->
+<!--      <br>root soft nofile 51200-->
+<!--      <br>root hard nofile 51200-->
+<!--    </div>-->
     <p>Append the following to <code style="display: inline">/etc/sysctl.conf</code> <br>(Switch to BBR Algorithm, According to <a
         href="https://blogs.oracle.com/wim/post/congestion-control-algorithms-in-uek5-preview-try-out-bbr">the Oracle
       Doc</a>):</p>
