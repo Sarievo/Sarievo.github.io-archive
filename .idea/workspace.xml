@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="bce3c1cc-790e-4b8b-a3c3-473b82c44250" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Articles/101-server-end-proxy.html" beforeDir="false" afterPath="$PROJECT_DIR$/Articles/101-server-end-proxy.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +24,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../cp/Practice" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
@@ -53,7 +52,8 @@
       <workItem from="1646258261644" duration="77000" />
       <workItem from="1646351199327" duration="1108000" />
       <workItem from="1646369612076" duration="105000" />
-      <workItem from="1646575479439" duration="469000" />
+      <workItem from="1646575479439" duration="517000" />
+      <workItem from="1646730766464" duration="17000" />
     </task>
     <servers />
   </component>
