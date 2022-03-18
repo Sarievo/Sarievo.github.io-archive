@@ -11,3 +11,107 @@ a {
 tbody td {
   border: 1px solid black;
 }
+
+.tv {
+  position: absolute;
+  top: 100px;
+  left: 100px;
+}
+.antenna {
+  position: absolute;
+  left: 75px;
+}
+.stick {
+  position: absolute;
+  width: 2px;
+  height: 50px;
+  background-color: #c9c9c9;
+  top: -43px;
+}
+.stick-left {
+  left: -17px;
+  transform: rotate(-45deg)
+}
+.stick-right {
+  left: 16px;
+  transform: rotate(45deg)
+}
+.box {
+  position: absolute;
+  background-color: black;
+  width: 150px;
+  height: 100px;
+}
+.screen {
+  position: absolute;
+  width: 130px;
+  height: 80px;
+  background-color: #284055;
+  left: 10px;
+  top: 10px;
+}
+.base {
+  position: absolute;
+  top: 100px;
+  left: 65px;
+  background-color: black;
+  width: 20px;
+  height: 10px;
+}
+.support {
+  position: absolute;
+  top: 110px;
+  left: 55px;
+  background-color: black;
+  width: 40px;
+  height: 10px;
+}
+
+.block {
+  width: 300px;
+  height: 300px;
+  background-color: yellow;
+  border: #284055 2px dotted;
+  opacity: .7;
+  transition: opacity .5s ease;
+
+  display: flex;
+  justify-content: right;
+  font-size: 1000%;
+}
+.block:hover {
+  opacity: 1;
+}
+
+.card {
+  height: 150px;
+  width: 15%;
+}
+.front, .back {
+  align-items: center;
+  display: flex;
+  font-size: 18px;
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+}
+img {
+  width: 80%
+}
+
+/* Only change code below this line */
+
+.card {
+  transition: 2s ease;
+  transform-style: preserve-3d;
+}
+.card:hover {
+  transform: rotateY(180deg);
+}
+.front, .back {
+  backface-visibility: hidden;
+  position: absolute;
+}
+.back {
+  transform: rotateY(180deg);
+}

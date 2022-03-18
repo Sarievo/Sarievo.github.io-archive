@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  background-image: url("https://stepik.org/media/attachments/lesson/374893/world.png");
+  background-repeat: no-repeat;
+  background-position-x: center;
+}
+
+main {
+  /*border: black 1px solid;*/
+  /*border-radius: 15px;*/
+  padding: 1rem;
+}
+
+@keyframes change-color {
+  from {
+    color: #7400b8;
+  }
+  10% {
+    color: #5e60ce;
+  }
+  20% {
+    color: #4ea8de;
+  }
+  30% {
+    color: #56cfe1;
+  }
+  40% {
+    color: #72efdd;
+  }
+  50% {
+    color: #80ffdb;
+  }
+  60% {
+    color: #72efdd;
+  }
+  70% {
+    color: #56cfe1;
+  }
+  80% {
+    color: #4ea8de;
+  }
+  90% {
+    color: #5e60ce;
+  }
+  to {
+    color: #7400b8;
+  }
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.front,
+.back {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: dodgerblue 2px solid;
+  border-radius: 15px;
+  position: absolute;
+}
+
+.front {
+  color: #03045e;
+  background-color: #caf0f8;
+  z-index: 2;
+  backface-visibility: hidden;
+}
+
+.back {
+  color: #caf0f8;
+  background-color: #03045e;
+  transform: rotateY(180deg);
+  z-index: 1;
+}
+
+.container:hover .card {
+  transform: rotateY(180deg);
+}
+
+h1 {
+  animation-name: change-color;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+.title {
+  text-align: center;
+}
+
+.panel {
+  display: grid;
+  grid: repeat(3, 150px) / repeat(3, 150px);
+  grid-gap: 20px;
+  grid-auto-flow: row;
+  justify-content: center;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 500px) {
+  .panel {
+    grid: repeat(3, 100px) / repeat(3, 100px);
+    grid-gap: 15px;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .panel {
+    grid: repeat(3, 75px) / repeat(3, 75px);
+    font-size: .8rem;
+  }
+}
+
+.container {
+  position: relative;
+  perspective: 1000px;
+}
+
+.card {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 1s 10ms ease;
+  transform-style: preserve-3d;
+}
+
